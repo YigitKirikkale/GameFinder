@@ -19,7 +19,7 @@ class _HomePageState extends State<HomePage> {
       body: switcher(_pageindex),
       bottomNavigationBar: BottomNavigationBar(
         items: [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: "Anasayfa"),
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: "Anasayfa "),
           BottomNavigationBarItem(
               icon: Icon(Icons.gamepad_outlined), label: "Oyunlar")
         ],
