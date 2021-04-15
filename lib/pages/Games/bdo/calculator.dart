@@ -20,39 +20,44 @@ class _CalculatorState extends State<Calculator> {
         centerTitle: true,
       ),
       body: Container(
+          decoration: BoxDecoration(
+              gradient: LinearGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  colors: [Colors.white, Colors.blue])),
           child: Column(
-        children: [
-          TextField(
-            controller: _value,
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(
-                "Değerli Paketiniz varmı ?",
-                style: TextStyle(color: Colors.black87, fontSize: 20),
+              TextField(
+                controller: _value,
               ),
-              CupertinoSwitch(
-                value: _switchValue,
-                onChanged: (value) {
-                  setState(() {
-                    _switchValue = value;
-                  });
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    "Değerli Paketiniz varmı ?",
+                    style: TextStyle(color: Colors.black87, fontSize: 20),
+                  ),
+                  CupertinoSwitch(
+                    value: _switchValue,
+                    onChanged: (value) {
+                      setState(() {
+                        _switchValue = value;
+                      });
+                    },
+                  ),
+                ],
+              ),
+              OutlinedButton(
+                onPressed: () {
+                  calculate(_value.text);
                 },
+                child: Center(
+                  child: Text("Hesapla"),
+                ),
               ),
+              Text(_result != null ? _result : "Lütfen İşlem Yapınız"),
             ],
-          ),
-          OutlineButton(
-            onPressed: () {
-              calculate(_value.text);
-            },
-            child: Center(
-              child: Text("Hesapla"),
-            ),
-          ),
-          Text(_result != null ? _result : "Lütfen İşlem Yapınız"),
-        ],
-      )),
+          )),
     );
   }
 
